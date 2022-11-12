@@ -1,0 +1,15 @@
+﻿  string_archive.cc
+  archive.cc
+  stream.cc
+  log.cc
+  box.cc
+  math_archive.cc
+  simd_math.cc
+  simd_math_archive.cc
+  soa_math_archive.cc
+  allocator.cc
+  platform.cc
+  Ozz libraries were built with SSE2 SIMD math implementation
+C:\Users\Gido\Projects\XYZEngine\XYZEngine\vendor\ozz-animation\src\base\io\stream.cc(44,21): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\Gido\Projects\XYZEngine\XYZEngine\vendor\ozz-animation\src\base\io\stream.cc(53,18): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  ozz_base.vcxproj -> C:\Users\Gido\Projects\XYZEngine\XYZEngine\vendor\ozz-animation\bin\Debug-windows-x86_64\ozz_base\ozz_base.lib

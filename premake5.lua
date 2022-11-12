@@ -1,11 +1,32 @@
 project "ozz_base"
-	kind "StaticLib"
+	filter "options:static"
+		kind "StaticLib"
+	filter "options:sharedexport"
+		kind "SharedLib"
+	filter "options:sharedimport"
+		kind "SharedLib"
+	filter{}
 	language "C++"
-	cppdialect "C++11"
+	cppdialect "C++17"
 	staticruntime "off"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+
+
+	filter "options:sharedexport"
+		defines
+		{
+			"OZZ_USE_DYNAMIC_LINKING",
+			"OZZ_BUILD_BASE_LIB"
+		}
+		
+	filter "options:sharedimport"
+		defines
+		{
+			"OZZ_USE_DYNAMIC_LINKING"
+		}
+	filter {}
 
 	files
 	{
@@ -18,6 +39,8 @@ project "ozz_base"
 		"include",
 		"src"
 	}
+
+	
 
 	filter "system:windows"
 		systemversion "latest"
@@ -36,13 +59,38 @@ project "ozz_base"
 
 
 project "ozz_animation"
-	kind "StaticLib"
+	filter "options:static"
+		kind "StaticLib"
+	filter "options:sharedexport"
+		kind "SharedLib"
+	filter "options:sharedimport"
+		kind "SharedLib"
+	filter {}
 	language "C++"
-	cppdialect "C++11"
+	cppdialect "C++17"
 	staticruntime "off"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+
+	
+	filter "options:sharedexport"
+		defines
+		{
+			"OZZ_USE_DYNAMIC_LINKING",
+			"OZZ_BUILD_ANIMATION_LIB"
+		}
+		links
+		{
+			"ozz_base"
+		}
+	filter "options:sharedimport"
+		defines
+		{
+			"OZZ_USE_DYNAMIC_LINKING"
+		}
+	
+	filter {}
 
 	files
 	{
@@ -56,6 +104,8 @@ project "ozz_animation"
 		"include",
 		"src"
 	}
+
+	
 
 	filter "system:windows"
 		systemversion "latest"
@@ -116,14 +166,38 @@ project "ozz_animation"
 -- ozz_animation_offline provides support for import of assets from digital content creators
 -- (where we write the actual importers ourselves)
 project "ozz_animation_offline"
-	kind "StaticLib"
+	filter "options:static"
+		kind "StaticLib"
+	filter "options:sharedexport"
+		kind "SharedLib"
+	filter "options:sharedimport"
+		kind "SharedLib"
+	filter{}
 	language "C++"
-	cppdialect "C++11"
+	cppdialect "C++17"
 	staticruntime "off"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
+
+	filter "options:sharedexport"
+		defines
+		{
+			"OZZ_USE_DYNAMIC_LINKING",
+			"OZZ_BUILD_ANIMOFFLINE_LIB"
+		}
+		links
+		{
+			"ozz_base",
+			"ozz_animation"
+		}
+	filter "options:sharedimport"
+		defines
+		{
+			"OZZ_USE_DYNAMIC_LINKING"
+		}
+	filter {}
 	-- wildcards are not recursive here, on purpose
 	files
 	{
@@ -137,6 +211,8 @@ project "ozz_animation_offline"
 		"include",
 		"src"
 	}
+
+	
 
 	filter "system:windows"
 		systemversion "latest"
