@@ -1,1 +1,22 @@
-﻿  ozz_animation_offline.vcxproj -> C:\Users\Gido\Projects\XYZEngine\XYZEngine\vendor\ozz-animation\bin\Debug-windows-x86_64\ozz_animation_offline\ozz_animation_offline.lib
+﻿  additive_animation_builder.cc
+  animation_builder.cc
+  animation_optimizer.cc
+  raw_animation.cc
+  raw_animation_archive.cc
+  raw_animation_utils.cc
+  raw_skeleton.cc
+  raw_skeleton_archive.cc
+  raw_track.cc
+  skeleton_builder.cc
+  track_builder.cc
+  track_optimizer.cc
+C:\Users\Gido\Projects\XYZEngine\XYZEngine\vendor\ozz-animation\src\animation\offline\animation_builder.cc(321,5): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\Gido\Projects\XYZEngine\XYZEngine\vendor\ozz-animation\src\animation\offline\skeleton_builder.cc(111,5): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\Gido\Projects\XYZEngine\XYZEngine\vendor\ozz-animation\src\animation\offline\track_builder.cc(147,5): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\Gido\Projects\XYZEngine\XYZEngine\vendor\ozz-animation\src\animation\offline\track_builder.cc(155,49): message : see reference to function template instantiation 'std::unique_ptr<ozz::animation::FloatTrack,ozz::Deleter<_Ty>> ozz::animation::offline::TrackBuilder::Build<ozz::animation::offline::RawFloatTrack,ozz::animation::FloatTrack>(const _RawTrack &) const' being compiled
+          with
+          [
+              _Ty=ozz::animation::FloatTrack,
+              _RawTrack=ozz::animation::offline::RawFloatTrack
+          ]
+  ozz_animation_offline.vcxproj -> C:\Users\Gido\Projects\XYZEngine\XYZEngine\vendor\ozz-animation\bin\Debug-windows-x86_64\ozz_animation_offline\ozz_animation_offline.lib

@@ -1,11 +1,5 @@
-project "ozz_base"
-	filter "options:static"
-		kind "StaticLib"
-	filter "options:sharedexport"
-		kind "SharedLib"
-	filter "options:sharedimport"
-		kind "SharedLib"
-	filter{}
+project "ozz_base"	
+	kind "StaticLib"
 	language "C++"
 	cppdialect "C++17"
 	staticruntime "off"
@@ -14,19 +8,7 @@ project "ozz_base"
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
 
-	filter "options:sharedexport"
-		defines
-		{
-			"OZZ_USE_DYNAMIC_LINKING",
-			"OZZ_BUILD_BASE_LIB"
-		}
-		
-	filter "options:sharedimport"
-		defines
-		{
-			"OZZ_USE_DYNAMIC_LINKING"
-		}
-	filter {}
+	
 
 	files
 	{
@@ -59,13 +41,7 @@ project "ozz_base"
 
 
 project "ozz_animation"
-	filter "options:static"
-		kind "StaticLib"
-	filter "options:sharedexport"
-		kind "SharedLib"
-	filter "options:sharedimport"
-		kind "SharedLib"
-	filter {}
+	kind "StaticLib"
 	language "C++"
 	cppdialect "C++17"
 	staticruntime "off"
@@ -73,24 +49,7 @@ project "ozz_animation"
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
-	
-	filter "options:sharedexport"
-		defines
-		{
-			"OZZ_USE_DYNAMIC_LINKING",
-			"OZZ_BUILD_ANIMATION_LIB"
-		}
-		links
-		{
-			"ozz_base"
-		}
-	filter "options:sharedimport"
-		defines
-		{
-			"OZZ_USE_DYNAMIC_LINKING"
-		}
-	
-	filter {}
+
 
 	files
 	{
@@ -166,13 +125,7 @@ project "ozz_animation"
 -- ozz_animation_offline provides support for import of assets from digital content creators
 -- (where we write the actual importers ourselves)
 project "ozz_animation_offline"
-	filter "options:static"
-		kind "StaticLib"
-	filter "options:sharedexport"
-		kind "SharedLib"
-	filter "options:sharedimport"
-		kind "SharedLib"
-	filter{}
+	kind "StaticLib"
 	language "C++"
 	cppdialect "C++17"
 	staticruntime "off"
@@ -180,24 +133,6 @@ project "ozz_animation_offline"
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
-
-	filter "options:sharedexport"
-		defines
-		{
-			"OZZ_USE_DYNAMIC_LINKING",
-			"OZZ_BUILD_ANIMOFFLINE_LIB"
-		}
-		links
-		{
-			"ozz_base",
-			"ozz_animation"
-		}
-	filter "options:sharedimport"
-		defines
-		{
-			"OZZ_USE_DYNAMIC_LINKING"
-		}
-	filter {}
 	-- wildcards are not recursive here, on purpose
 	files
 	{
